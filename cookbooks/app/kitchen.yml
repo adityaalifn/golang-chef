@@ -1,0 +1,20 @@
+---
+driver:
+  name: vagrant
+  network:
+    - ["private_network", {ip: "192.168.50.4"}]
+
+provisioner:
+  name: chef_zero
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: ubuntu/bionic64
+
+suites:
+  - name: default
+    verifier:
+      inspec_tests:
+        - test/integration/default
